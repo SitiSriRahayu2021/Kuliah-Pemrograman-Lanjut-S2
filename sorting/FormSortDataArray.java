@@ -29,11 +29,11 @@ public class FormSortDataArray {
                 DefaultTableModel model = (DefaultTableModel) tableAngka.getModel();
                 String input = textAngka.getText();
                 String[] tmp = input.split(",");
-                String data = textAngka.getText();
+                String dataangka = textAngka.getText();
                 int size = tmp.length;
                 System.out.println(tmp.length);
 
-                if(data.isEmpty()) {
+                if(dataangka.isEmpty()) {
                     JOptionPane.showMessageDialog(rootPanel,
                             "Data Angka Belum Diinputkan",
                             "Warning",
@@ -48,16 +48,16 @@ public class FormSortDataArray {
                     }
                     added = true;
                 }
-                int x = 0;
-                for(int i : Sorting.getascending(input, size)) {
-                    model.setValueAt(i, x, 0);
-                    x++;
-                }
-                int y = 0;
-                for(int i : Sorting.getdescending(input,size)) {
-                    model.setValueAt(i, y, 1);
-                    y++;
-                }
+                    int x = 0;
+                    for (int i : Sorting.getascending(input, size)) {
+                        model.setValueAt(i, x, 0);
+                        x++;
+                    }
+                    int y = 0;
+                    for (int i : Sorting.getdescending(input, size)) {
+                        model.setValueAt(i, y, 1);
+                        y++;
+                    }
 
             }
         });

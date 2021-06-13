@@ -38,8 +38,8 @@ public class Sorting {
             array[x] = Integer.parseInt(psh.trim());
             x++;
         }
-        for (i=0; i<(angka-1); i++) {
-            for (j=0; j<angka-i-1; j++) {
+        for (i = 0; i < (angka-1); i++) {
+            for (j = 0; j < angka-i-1; j++) {
                 if (array[j]<array[j+1])
                 {
                     temp = array[j];
