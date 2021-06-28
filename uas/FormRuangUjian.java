@@ -26,6 +26,7 @@ public class FormRuangUjian {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 String noUjian = textNoUjian.getText();
+
                 if (noUjian.isEmpty()) {
                     JOptionPane.showMessageDialog(rootPanel,
                             "Silahkan Masukkan Nomor Ujian untuk Ruang Ujian Ini",
@@ -35,7 +36,6 @@ public class FormRuangUjian {
                 } else {
                     tableModel.addRow(new Object[]{noUjian});
                     textNoUjian.setText("");
-
                 }
             }
 
@@ -44,24 +44,22 @@ public class FormRuangUjian {
         buttonCari.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                String[] angka = new String[]{textNoUjian.getText()};
-                String data = JOptionPane.showInputDialog("Nomor Ujian yang dicari: ");
-                if (data.isEmpty()) {
-                    JOptionPane.showMessageDialog(rootPanel,
-                            "Silahkan Masukkan Nomor Ujian yang Dicari",
-                            "Warning",
-                            JOptionPane.WARNING_MESSAGE);
-                } else {
-                    JOptionPane.showInputDialog("Nomor Ujian ini berada di indeks ke-" );
-                }
+                String[] data = {textNoUjian.getText()};
+                String angka = textNoUjian.getText();
+                JOptionPane.showInputDialog("Silahkan masukkan nomor ujian yang akan dicari");
+
+                JOptionPane.showInputDialog("nomor ujian ada di INDEKS KE " + Sequential(data, angka));
+
 
             }
+
         });
     }
 
     private void initComponents() {
         Object[] tableColom = {
-                "Ascending / Descending"
+                "Ascending",
+                "Descending"
         };
 
         Object[][] initData = {
@@ -77,7 +75,26 @@ public class FormRuangUjian {
 
     }
 
+    static int Sequential(String[] data, String angka) {
+        for (int i = 0; i < data.length; i++) {
+            if (angka == data[i]) {
+                return i;
+            }
+            return -1;
+        }
+    }
+    public static void main(String[] args) {
+        int[] data = {2,4,6,8,9};
+        int angka =10 ;
+
+
+
+    }
 
 
 }
+
+
+
+
 
